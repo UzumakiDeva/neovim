@@ -4,10 +4,11 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 
 vim.opt.showmode = false
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 vim.opt.breakindent = true
 
@@ -22,10 +23,10 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- decrease update time
-vim.opt.updatetime = 250
+vim.opt.updatetime = 100
 
 -- decrease mapped sequence wait time
-vim.opt.timeoutlen = 800
+vim.opt.timeoutlen = 500
 
 -- configure how new splits should be opened
 vim.opt.splitright = true

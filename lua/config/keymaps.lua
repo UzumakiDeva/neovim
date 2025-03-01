@@ -22,5 +22,22 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "close buffer" })
 -- quit neovim
 vim.keymap.set("n", "<leader>q", "<cmd>qa<CR>", { desc = "quit neovim" })
 
---lazygit
-vim.keymap.set("n", "<leader>gg", ":LazyGit<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy to system clipboard
+vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy selection to system clipboard
+vim.keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true }) -- Paste from system clipboard
+vim.keymap.set("x", "p", '"_dP') -- Paste without overwriting clipboard
+
+vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true }) -- Exit insert mode quickly
+vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true }) -- Keep selection when indenting left
+vim.keymap.set("v", ">", ">gv", { noremap = true, silent = true }) -- Keep selection when indenting right
+vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true }) -- Delete without copying to register
+vim.keymap.set("n", "<leader>d", '"_d', { noremap = true, silent = true }) -- Cut without copying
+
+vim.keymap.set("n", "n", "nzzzv", { noremap = true, silent = true }) -- Keep search results centered
+vim.keymap.set("n", "N", "Nzzzv", { noremap = true, silent = true }) -- Keep search results centered
+
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true }) -- Move line down
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true }) -- Move line up
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true }) -- Move selection down
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true }) -- Move selection up
+vim.keymap.set("n", "<leader>R", ":source %<CR>", { noremap = true, silent = true }) -- Reloadrcurrent config
