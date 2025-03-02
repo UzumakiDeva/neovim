@@ -71,7 +71,7 @@ return { -- Autocompletion
 
 				-- If you prefer more traditional completion keymaps,
 				-- you can uncomment the following lines
-				["<CR>"] = cmp.mapping.confirm({ select = true }),
+				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-j>"] = cmp.mapping.select_next_item(),
 				["<C-k>"] = cmp.mapping.select_prev_item(),
 
