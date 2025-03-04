@@ -32,4 +32,4 @@ require("lazy").setup({
 })
 
 require("config.keymaps")
-vim.cmd("colorscheme habamax")
+-- vim.cmd.colorscheme("gruvbox")
