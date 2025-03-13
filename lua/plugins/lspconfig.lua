@@ -45,6 +45,19 @@ return {
 		--    That is to say, every time a new file is opened that is associated with
 		--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 		--    function will be executed to configure the current buffer
+		local function custom_on_attach(client, bufnr)
+			-- Get the first attached client and disable others
+			local active_clients = vim.lsp.get_active_clients({ bufnr = bufnr })
+			if #active_clients > 0 then
+				-- If a client is already attached, disable new ones
+				if client.id ~= active_clients[1].id then
+					client.stop()
+					return
+				end
+			end
+			-- Enable your keymaps, autocommands, etc. here
+		end
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -81,7 +94,7 @@ return {
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				-- map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
@@ -282,6 +295,12 @@ return {
 					lspconfig[server_name].setup(server)
 				end,
 			},
+		})
+
+		vim.diagnostic.config({
+			virtual_text = { severity = { min = vim.diagnostic.severity.ERROR } }, -- Only show errors
+			signs = true,
+			update_in_insert = false,
 		})
 	end,
 }

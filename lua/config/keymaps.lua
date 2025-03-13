@@ -1,6 +1,8 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "j", "gj")
+vim.keymap.set("n", "k", "gk")
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -18,14 +20,15 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<S-h>", "<cmd>bp<CR>", { desc = "move to prev buffer" })
 vim.keymap.set("n", "<S-l>", "<cmd>bn<CR>", { desc = "move to next buffer" })
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<CR>", { desc = "close buffer" })
+vim.keymap.set("n", "<leader>D", ":bufdo if bufname('%') != bufname('') | bwipeout | endif<CR>", { noremap = true, silent = true })
 
--- quit neovim
 vim.keymap.set("n", "<leader>q", "<cmd>qa<CR>", { desc = "quit neovim" })
+vim.keymap.set("n", "<leader>w", "<cmd>w<CR>", { desc = "save file" })
 
-vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy to system clipboard
-vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy selection to system clipboard
-vim.keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true }) -- Paste from system clipboard
-vim.keymap.set("x", "p", '"_dP') -- Paste without overwriting clipboard
+-- vim.keymap.set("n", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy to system clipboard
+-- vim.keymap.set("v", "<leader>y", '"+y', { noremap = true, silent = true }) -- Copy selection to system clipboard
+-- vim.keymap.set("n", "<leader>p", '"+p', { noremap = true, silent = true }) -- Paste from system clipboard
+-- vim.keymap.set("x", "p", '"_dP') -- Paste without overwriting clipboard
 
 vim.keymap.set("i", "jk", "<Esc>", { noremap = true, silent = true }) -- Exit insert mode quickly
 vim.keymap.set("v", "<", "<gv", { noremap = true, silent = true }) -- Keep selection when indenting left
@@ -41,3 +44,8 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true }) 
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true }) -- Move selection down
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true }) -- Move selection up
 vim.keymap.set("n", "<leader>R", ":source %<CR>", { noremap = true, silent = true }) -- Reloadrcurrent config
+
+vim.keymap.set("n", "<leader>o", "o<Esc>", { noremap = true, silent = true }) -- Save file
+vim.keymap.set("n", "<leader>O", "O<Esc>", { noremap = true, silent = true }) -- Save file
+
+vim.keymap.set("n", "<leader>bD", ":lua DeleteBuffers()<cr>", { noremap = true, silent = true }) -- Save file

@@ -9,7 +9,8 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 
 vim.opt.showmode = false
--- vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
+vim.opt.cursorline = true
 
 vim.opt.breakindent = true
 
@@ -25,7 +26,6 @@ vim.opt.expandtab = true
 
 -- decrease update time
 vim.opt.updatetime = 100
-
 -- decrease mapped sequence wait time
 vim.opt.timeoutlen = 500
 
@@ -34,9 +34,11 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 
--- preview substitutions live, as you type!
+-- previsdfew substitutions live, as you type!
 vim.opt.inccommand = "split"
-vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 99
