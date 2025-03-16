@@ -23,6 +23,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
+		local actions = require("telescope.actions")
 		-- Two important keymaps to use while in Telescope are:
 		--  - Insert mode: <c-/>
 		--  - Normal mode: ?
@@ -40,6 +41,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
 						["<C-j>"] = require("telescope.actions").move_selection_next,
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
 						["<C-q>"] = require("telescope.actions").close,
+						["<C-v>"] = actions.select_vertical,
+					},
+					n = {
+						["<C-v>"] = actions.select_vertical,
 					},
 				},
 			},

@@ -1,5 +1,4 @@
 require("config.options")
-require("func.custom")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
@@ -33,4 +32,6 @@ require("lazy").setup({
 })
 
 require("config.keymaps")
-vim.cmd("silent! colorscheme kanagawa-dragon")
+-- vim.cmd("silent! colorscheme kanagawa-dragon")
+-- vim.cmd("silent! colorscheme gruvbox")
+-- require("func.custom")

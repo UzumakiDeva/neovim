@@ -1,6 +1,6 @@
 return {
 	-- install vim-surround
-	{ "tpope/vim-surround" },
+	-- { "tpope/vim-surround" },
 
 	-- install vim-bbye
 	{ "moll/vim-bbye" },

@@ -23,15 +23,15 @@ vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.scrolloff = 5
 
--- decrease update time
-vim.opt.updatetime = 100
--- decrease mapped sequence wait time
-vim.opt.timeoutlen = 500
+
+-- vim.opt.updatetime = 100
+-- vim.opt.timeoutlen = 500
 
 -- configure how new splits should be opened
 vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitbelow = false
 
 vim.opt.list = true
 -- vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -42,3 +42,4 @@ vim.opt.inccommand = "split"
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 99
+vim.opt.termguicolors = true
