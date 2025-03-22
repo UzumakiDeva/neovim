@@ -7,7 +7,22 @@ return {
             options = {
                 mode = "buffers",
                 always_show_bufferline = true,
-            }
+                highlight = { 
+                    buffer_selected = { 
+                        guifg = "#303030", 
+                        guibg = "#0087d7" 
+                    },
+                    buffer_visible = { 
+                        guifg = "#ffffff", 
+                        guibg = "#0087d7" 
+                    },
+                    tab_selected = { 
+                        guifg = "#ffffff", 
+                        guibg = "#0087d7" 
+                    }
+
+                }
+            },
         })
     end
 }

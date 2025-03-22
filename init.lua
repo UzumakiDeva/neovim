@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
-		-- import your plugins
 		{ import = "plugins" },
 		{ import = "kickstart.plugins" },
 	},
@@ -32,6 +31,4 @@ require("lazy").setup({
 })
 
 require("config.keymaps")
--- vim.cmd("silent! colorscheme kanagawa-dragon")
--- vim.cmd("silent! colorscheme gruvbox")
--- require("func.custom")
+require("func.custom")

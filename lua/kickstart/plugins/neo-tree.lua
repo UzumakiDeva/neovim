@@ -10,9 +10,9 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	cmd = "Neotree",
-	enabled = false,
+	enabled = true,
 	keys = {
-		{ "<leader>e", ":Neotree toggle<CR>", desc = "NeoTree reveal", silent = true },
+		{ "<leader>\\", ":Neotree toggle<CR>", desc = "NeoTree reveal", silent = true },
 	},
 	opts = {
 		filesystem = {
@@ -22,7 +22,7 @@ return {
 			window = {
 				width = 30,
 				mappings = {
-					["<leader>e"] = "close_window",
+					["<leader>\\"] = "close_window",
 				},
 			},
 		},

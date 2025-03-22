@@ -39,12 +39,12 @@ vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true }) 
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, silent = true }) -- Move line up
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true }) -- Move selection down
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true }) -- Move selection up
-vim.keymap.set("n", "<leader>R", ":source %<CR>", { noremap = true, silent = true }) -- Reloadrcurrent config
+vim.keymap.set("n", "<leader>R", ":source /home/galaxy/.config/nvim/init.lua<CR>", { noremap = true, silent = true }) -- Reloadrcurrent config
 
 vim.keymap.set("n", "<leader>o", "o<Esc>", { noremap = true, silent = true }) -- Save file
 vim.keymap.set("n", "<leader>O", "O<Esc>", { noremap = true, silent = true }) -- Save file
-
 vim.keymap.set("n", "<leader>bD", ":lua DeleteBuffers()<cr>", { noremap = true, silent = true }) -- Save file
 
 vim.keymap.set("n","J", "10j", { noremap = true, silent = true }) -- Scroll down 10 line
 vim.keymap.set("n","K", "10k", { noremap = true, silent = true }) -- Scroll up 10 line
+vim.keymap.set("n","<C-s>", ":SessionSave<cr>", { noremap = true, silent = true }) -- Save session
