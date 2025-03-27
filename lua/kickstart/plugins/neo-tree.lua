@@ -26,5 +26,24 @@ return {
 				},
 			},
 		},
+		enable_git_status = true,
+		default_component_configs = {
+			container = {
+				enable_character_fade = true,
+			},
+			git_status = {
+				symbols = {
+					added = "👶",
+					deleted = "",
+					modified = "",
+					renamed = " ",
+					untracked = " ",
+					ignored = " ",
+					unstaged = "🤷",
+					staged = "🤵",
+					conflict = " ",
+				},
+			},
+		}	
 	},
 }

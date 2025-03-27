@@ -8,7 +8,7 @@ return { "EdenEast/nightfox.nvim", name = "nightfox", priority = 1000 ,
 				compile_file_suffix = "_compiled", -- Compiled file suffix
 				transparent = false,     -- Disable setting background
 				terminal_colors = true,  -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
-				dim_inactive = true,    -- Non focused panes set to alternative background
+				dim_inactive = false,    -- Non focused panes set to alternative background
 				module_default = true,   -- Default enable value for modules
 				colorblind = {
 					enable = false,        -- Enable colorblind support
@@ -31,20 +31,21 @@ return { "EdenEast/nightfox.nvim", name = "nightfox", priority = 1000 ,
 					types = "NONE",
 					variables = "NONE",
 				},
-				inverse = {             -- Inverse highlight for different types
+				inverse = {
 					match_paren = false,
 					visual = false,
 					search = false,
 				},
-				modules = {             -- List of various plugins and additional options
+				modules = {
 					-- ...
 				},
 			},
-			palettes = {},
+			palettes = {
+				bg1 = "#000000",
+			},
 			specs = {},
 			groups = {},
 		})
 
-		-- setup must be called before loading
-		vim.cmd("colorscheme nightfox")	end,
+	end,
 }

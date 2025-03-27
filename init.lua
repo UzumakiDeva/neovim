@@ -32,3 +32,13 @@ require("lazy").setup({
 
 require("config.keymaps")
 require("func.custom")
+vim.cmd('colorscheme darkplus')
+vim.cmd("hi Normal ctermbg=NONE guibg=#000000")
+
+-- darkplus
+-- github_dark_colorblind
+-- tokyonight
+-- catppuccin
+-- kanagawa
+-- gruvbox
+-- nightfox

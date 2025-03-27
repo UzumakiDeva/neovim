@@ -33,10 +33,6 @@ return { -- Autocompletion
 					luasnip.lsp_expand(args.body)
 				end,
 			},
-			completion = { 
-				autocomplete = false,
-			},
-
 			mapping = cmp.mapping.preset.insert({
 				["<C-y>"] = cmp.mapping.confirm({ select = true }),
 				["<C-j>"] = cmp.mapping.select_next_item(),
