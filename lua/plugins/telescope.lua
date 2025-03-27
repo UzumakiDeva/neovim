@@ -6,58 +6,57 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		"nvim-lua/plenary.nvim",
 		{ -- If encountering errors, see telescope-fzf-native README for installation instructions
 			"nvim-telescope/telescope-fzf-native.nvim",
-
-			-- `build` is used to run some command when the plugin is installed/updated.
-			-- This is only run then, not every time Neovim starts up.
 			build = "make",
-
-			-- `cond` is a condition used to determine whether this plugin should be
-			-- installed and loaded.
 			cond = function()
 				return vim.fn.executable("make") == 1
 			end,
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 
-		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
-		-- Two important keymaps to use while in Telescope are:
-		--  - Insert mode: <c-/>
-		--  - Normal mode: ?
-		--
-		-- This opens a window that shows you all of the keymaps for the current
-		-- Telescope picker. This is really useful to discover what Telescope can
-		-- do as well as how to actually do it!
-
-		-- [[ Configure Telescope ]]
-		-- See `:help telescope` and `:help telescope.setup()`
+		local actions = require("telescope.actions")
 		require("telescope").setup({
 			defaults = {
+				prompt_prefix = "🔍 ",
+				selection_caret = "👉 ",
+				layout_config = {
+					horizontal = {
+						preview_width = 0.6,
+					},
+				},
+				sorting_strategy = "ascending",
+				file_ignore_patterns = { ".git/", ".cache/", "node_modules/", "build/", "dist/" },
 				mappings = {
 					i = {
 						["<C-j>"] = require("telescope.actions").move_selection_next,
 						["<C-k>"] = require("telescope.actions").move_selection_previous,
 						["<C-q>"] = require("telescope.actions").close,
+						["<C-v>"] = actions.select_vertical,
+					},
+					n = {
+						["<C-v>"] = actions.select_vertical,
 					},
 				},
 			},
-			-- You can put your default mappings / updates / etc. in here
-			--  All the info you're looking for is in `:help telescope.setup()`
-			--
-			-- defaults = {
-			--   mappings = {
-			--     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
-			--   },
-			-- },
-			-- pickers = {}
 			extensions = {
 				["ui-select"] = {
-					require("telescope.themes").get_dropdown(),
+					require("telescope.themes").get_ivy(),
+				},
+			}, 
+			pickers = {
+				find_files = {
+					theme = "ivy",
+					previewer = true,
+				},
+				live_grep = {
+					theme = "ivy",
+					previewer = true,
 				},
 			},
 		})
+	
 
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
@@ -79,9 +78,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
 			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
-			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-				winblend = 10,
-				previewer = false,
+			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_ivy({
+				winblend = 5,
+				previewer = true,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
 

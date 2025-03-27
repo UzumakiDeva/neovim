@@ -10,8 +10,9 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	cmd = "Neotree",
+	enabled = true,
 	keys = {
-		{ "<leader>e", ":Neotree reveal<CR>", desc = "NeoTree reveal", silent = true },
+		{ "<leader>\\", ":Neotree toggle<CR>", desc = "NeoTree reveal", silent = true },
 	},
 	opts = {
 		filesystem = {
@@ -21,9 +22,28 @@ return {
 			window = {
 				width = 30,
 				mappings = {
-					["<leader>e"] = "close_window",
+					["<leader>\\"] = "close_window",
 				},
 			},
 		},
+		enable_git_status = true,
+		default_component_configs = {
+			container = {
+				enable_character_fade = true,
+			},
+			git_status = {
+				symbols = {
+					added = "👶",
+					deleted = "",
+					modified = "",
+					renamed = " ",
+					untracked = " ",
+					ignored = " ",
+					unstaged = "🤷",
+					staged = "🤵",
+					conflict = " ",
+				},
+			},
+		}	
 	},
 }
